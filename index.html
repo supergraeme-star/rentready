@@ -24,10 +24,14 @@ h1{font-size:36px;font-weight:600;line-height:1.2;margin-bottom:1rem}
 .sp span{font-size:13px;color:#888}
 .sl{font-size:12px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
 .dg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:3rem}
-.dc{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:1rem}
+.dc{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:1rem;text-decoration:none;color:inherit;display:block;transition:border-color 0.15s}
+.dc:hover{border-color:#1D9E75;cursor:pointer}
+.dc:hover .doc-arrow{opacity:1}
 .di{width:32px;height:32px;background:#E1F5EE;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.doc-row{display:flex;justify-content:space-between;align-items:flex-start}
 .dn{font-size:14px;font-weight:600;margin-bottom:3px}
 .dd{font-size:12px;color:#888;line-height:1.5}
+.doc-arrow{font-size:14px;color:#1D9E75;opacity:0;margin-left:8px;flex-shrink:0;margin-top:2px}
 .steps{display:flex;flex-direction:column;margin-bottom:3rem}
 .step{display:flex;gap:16px;padding:1.25rem 0;border-bottom:1px solid #f0f0f0}
 .step:last-child{border-bottom:none}
@@ -44,7 +48,7 @@ h1{font-size:36px;font-weight:600;line-height:1.2;margin-bottom:1rem}
 .pd{font-size:13px;color:#888;margin-bottom:1rem;line-height:1.5}
 .pf{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem}
 .pf li{font-size:13px;color:#555;display:flex;align-items:flex-start;gap:8px}
-.pbtn{width:100%;padding:9px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid #ddd;background:transparent}
+.pbtn{width:100%;padding:9px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid #ddd;background:transparent;text-decoration:none;display:block;text-align:center}
 .pbtn.fi{background:#1a1a1a;color:#fff;border:none}
 .db{background:#f9f9f9;border-radius:8px;padding:10px 14px;font-size:12px;color:#aaa;text-align:center;margin-bottom:3rem}
 .fi-item{border-bottom:1px solid #f0f0f0;padding:1rem 0}
@@ -75,32 +79,52 @@ footer{border-top:1px solid #f0f0f0;padding-top:1.5rem;display:flex;justify-cont
       <span>Trusted by landlords across the Western Cape</span>
     </div>
   </div>
+
   <div id="documents" style="margin-bottom:3rem">
-    <div class="sl">5 documents included</div>
+    <div class="sl">5 documents — click to get started</div>
     <div class="dg">
-      <div class="dc"><div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="dn">Residential lease agreement</div><div class="dd">Full lease compliant with the Rental Housing Act 50 of 1999</div></div>
-      <div class="dc"><div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16v.92"/></svg></div><div class="dn">Notice to vacate</div><div class="dd">Formal notice referencing the PIE Act and Rental Housing Tribunal</div></div>
-      <div class="dc"><div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="dn">Late payment warning</div><div class="dd">First, second, or final warning letters with payment deadlines</div></div>
-      <div class="dc"><div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="dn">Property inspection report</div><div class="dd">Move-in and move-out condition records signed by both parties</div></div>
-      <div class="dc" style="grid-column:1/-1"><div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="dn">Rental Housing Tribunal response</div><div class="dd">Structured formal response to a tenant complaint, ready to submit to the Tribunal</div></div>
+      <a href="app.html?doc=0" class="dc">
+        <div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="doc-row"><div><div class="dn">Residential lease agreement</div><div class="dd">Full lease compliant with the Rental Housing Act 50 of 1999</div></div><span class="doc-arrow">→</span></div>
+      </a>
+      <a href="app.html?doc=1" class="dc">
+        <div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16v.92"/></svg></div>
+        <div class="doc-row"><div><div class="dn">Notice to vacate</div><div class="dd">Formal notice referencing the PIE Act and Rental Housing Tribunal</div></div><span class="doc-arrow">→</span></div>
+      </a>
+      <a href="app.html?doc=2" class="dc">
+        <div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="doc-row"><div><div class="dn">Late payment warning</div><div class="dd">First, second, or final warning letters with payment deadlines</div></div><span class="doc-arrow">→</span></div>
+      </a>
+      <a href="app.html?doc=3" class="dc">
+        <div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="doc-row"><div><div class="dn">Property inspection report</div><div class="dd">Move-in and move-out condition records signed by both parties</div></div><span class="doc-arrow">→</span></div>
+      </a>
+      <a href="app.html?doc=4" class="dc" style="grid-column:1/-1">
+        <div class="di"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="doc-row"><div><div class="dn">Rental Housing Tribunal response</div><div class="dd">Structured formal response to a tenant complaint, ready to submit to the Tribunal</div></div><span class="doc-arrow">→</span></div>
+      </a>
     </div>
   </div>
+
   <div style="margin-bottom:3rem">
     <div class="sl">How it works</div>
     <div class="steps">
-      <div class="step"><div class="sn">1</div><div><h3>Choose your document</h3><p>Select from five document types covering the most common landlord situations.</p></div></div>
+      <div class="step"><div class="sn">1</div><div><h3>Choose your document</h3><p>Click any document above to go straight to that form.</p></div></div>
       <div class="step"><div class="sn">2</div><div><h3>Fill in the details</h3><p>Enter the tenant name, property address, rental amount, and any specific terms. Takes under two minutes.</p></div></div>
-      <div class="step"><div class="sn">3</div><div><h3>Generate and download</h3><p>Your document is generated instantly. Copy it, download as PDF, or send directly to your tenant.</p></div></div>
+      <div class="step"><div class="sn">3</div><div><h3>Copy and use</h3><p>Your document appears instantly on the right as you type. Copy it and send it.</p></div></div>
     </div>
   </div>
+
   <div id="pricing" style="margin-bottom:1.5rem">
     <div class="sl">Pricing</div>
     <div class="pg">
-      <div class="pc"><div class="pn">Free</div><div class="pp">R0 <span>/ month</span></div><div class="pd">Get started with no commitment</div><ul class="pf"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>2 documents per month</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>All 5 document types</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Copy to clipboard</li></ul><button class="pbtn">Start free</button></div>
-      <div class="pc ft"><div class="pn">Pro</div><div class="pb">Most popular</div><div class="pp">R149 <span>/ month</span></div><div class="pd">For active landlords who need documents regularly</div><ul class="pf"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Unlimited documents</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>PDF download</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Document history</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li></ul><button class="pbtn fi">Get Pro</button></div>
+      <div class="pc"><div class="pn">Free</div><div class="pp">R0 <span>/ month</span></div><div class="pd">Get started with no commitment</div><ul class="pf"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>2 documents per month</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>All 5 document types</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Copy to clipboard</li></ul><a href="app.html" class="pbtn">Start free</a></div>
+      <div class="pc ft"><div class="pn">Pro</div><div class="pb">Most popular</div><div class="pp">R149 <span>/ month</span></div><div class="pd">For active landlords who need documents regularly</div><ul class="pf"><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Unlimited documents</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>PDF download</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Document history</li><li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2" style="flex-shrink:0;margin-top:2px"><polyline points="20 6 9 17 4 12"/></svg>Priority support</li></ul><a href="app.html" class="pbtn fi">Get Pro</a></div>
     </div>
   </div>
+
   <div class="db">Documents generated for informational purposes only. Not legal advice. Consult a qualified attorney for legal matters. Built in accordance with the Rental Housing Act 50 of 1999.</div>
+
   <div style="margin-bottom:3rem">
     <div class="sl">Common questions</div>
     <div class="fi-item"><div class="fi-q">Are the documents legally valid in South Africa?</div><div class="fi-a">RentReady generates documents with reference to the Rental Housing Act 50 of 1999 and other applicable South African legislation. They are designed to be comprehensive starting points. For complex or disputed matters, we recommend consulting a qualified attorney.</div></div>

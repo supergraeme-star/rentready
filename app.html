@@ -244,7 +244,9 @@ function copyDoc(){
     document.querySelectorAll('.copy-btn-main,.copy-btn').forEach(b=>{const o=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=o,2000)});
   });
 }
-updatePreview();
+const params=new URLSearchParams(window.location.search);
+const docParam=params.get('doc');
+if(docParam!==null&&!isNaN(docParam)){switchTab(parseInt(docParam));}else{updatePreview();}
 </script>
 </body>
 </html>
