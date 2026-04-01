@@ -9,12 +9,12 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a}
 .wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem 5rem}
 nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid #f0f0f0;margin-bottom:1.5rem}
-.nav-logo{font-size:16px;font-weight:600;color:#1a1a1a;text-decoration:none}
+.nav-logo{font-size:16px;font-weight:700;color:#1a1a1a;text-decoration:none}
+.nav-logo span{color:#1D9E75}
 .nav-back{font-size:13px;color:#666;text-decoration:none;border:1px solid #ddd;padding:6px 12px;border-radius:8px}
 .nav-back:hover{background:#f5f5f5}
 .free-bar{background:#f9f9f9;border-radius:8px;padding:9px 14px;font-size:13px;color:#666;margin-bottom:1.25rem;display:flex;justify-content:space-between;align-items:center}
-.upgrade-link{font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;border:1px solid #ddd;padding:5px 10px;border-radius:8px}
-.upgrade-link:hover{background:#f5f5f5}
+.upgrade-link{font-size:13px;font-weight:600;color:#1D9E75;text-decoration:none;border:1px solid #c8edd9;padding:5px 10px;border-radius:8px;background:#f5fdf9}
 .doc-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:1.25rem}
 .tab{padding:8px 4px;font-size:11px;text-align:center;border:1px solid #ddd;border-radius:8px;cursor:pointer;color:#666;background:#fff;line-height:1.4}
 .tab:hover{background:#f5f5f5}
@@ -27,31 +27,70 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1.25re
 .field.full{grid-column:1/-1}
 label{font-size:12px;color:#666}
 input,select,textarea{width:100%;padding:7px 9px;border:1px solid #ddd;border-radius:8px;font-size:13px;background:#fff;color:#1a1a1a;font-family:inherit}
-input:focus,select:focus,textarea:focus{outline:none;border-color:#888}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#1D9E75}
 textarea{resize:vertical;min-height:60px}
-.copy-btn-main{width:100%;padding:10px;background:#1a1a1a;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;margin-top:0.25rem}
-.copy-btn-main:hover{opacity:0.85}
+.copy-btn-main{width:100%;padding:10px;background:#1D9E75;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;margin-top:0.25rem}
+.copy-btn-main:hover{background:#0F6E56}
 .preview-col{position:sticky;top:1.5rem}
 .preview-card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:1.25rem}
 .preview-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid #f0f0f0}
 .preview-label{font-size:13px;font-weight:600;color:#1a1a1a}
 .copy-btn{font-size:12px;padding:5px 12px;border:1px solid #ddd;border-radius:8px;background:transparent;color:#666;cursor:pointer}
 .copy-btn:hover{background:#f5f5f5}
-.doc-preview{font-size:12px;line-height:1.75;color:#1a1a1a;white-space:pre-wrap;max-height:560px;overflow-y:auto}
+.doc-preview{font-size:12px;line-height:1.75;color:#1a1a1a;white-space:pre-wrap;max-height:600px;overflow-y:auto}
 .disclaimer{font-size:11px;color:#aaa;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #f0f0f0}
 .form-section{display:none}
 .form-section.active{display:block}
+.pro-section{border:1.5px solid #c8edd9;border-radius:12px;padding:1rem;margin-bottom:0.75rem;background:#f9fffe}
+.pro-header{display:flex;align-items:center;gap:8px;margin-bottom:0.75rem;cursor:pointer}
+.pro-badge{display:inline-flex;align-items:center;gap:4px;background:#1D9E75;color:#fff;font-size:10px;font-weight:700;padding:3px 7px;border-radius:5px}
+.pro-title{font-size:13px;font-weight:600;color:#1a1a1a;flex:1}
+.pro-chevron{font-size:11px;color:#1D9E75;transition:transform 0.2s}
+.pro-chevron.open{transform:rotate(180deg)}
+.pro-body{display:none}
+.pro-body.open{display:block}
+.clause-section{background:#fff;border:1px solid #f0f0f0;border-radius:10px;margin-bottom:8px;overflow:hidden}
+.clause-section-header{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer}
+.clause-section-header:hover{background:#fafafa}
+.cs-icon{width:24px;height:24px;background:#E1F5EE;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cs-name{font-size:13px;font-weight:600;color:#1a1a1a;flex:1}
+.cs-count{font-size:11px;color:#1D9E75;font-weight:600}
+.cs-chevron{font-size:10px;color:#aaa;transition:transform 0.2s}
+.cs-chevron.open{transform:rotate(180deg)}
+.clause-body{display:none;padding:0 12px 12px;border-top:1px solid #f5f5f5}
+.clause-body.open{display:block}
+.clause-row{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f9f9f9}
+.clause-row:last-child{border-bottom:none}
+.clause-main{flex:1}
+.clause-name{font-size:12px;font-weight:600;color:#1a1a1a;margin-bottom:2px}
+.clause-desc{font-size:11px;color:#888;line-height:1.4;margin-bottom:5px}
+.clause-select{width:100%;padding:5px 7px;border:1px solid #ddd;border-radius:6px;font-size:12px;color:#1a1a1a;background:#fff;display:none}
+.clause-select.visible{display:block}
+.clause-edit{width:100%;padding:5px 7px;border:1px solid #ddd;border-radius:6px;font-size:11px;color:#1a1a1a;background:#fff;margin-top:5px;resize:vertical;min-height:48px;display:none;font-family:inherit;line-height:1.5}
+.toggle{position:relative;width:32px;height:18px;flex-shrink:0;margin-top:2px}
+.toggle input{opacity:0;width:0;height:0;position:absolute}
+.toggle-slider{position:absolute;inset:0;background:#ddd;border-radius:18px;cursor:pointer;transition:background 0.2s}
+.toggle input:checked+.toggle-slider{background:#1D9E75}
+.toggle-slider:before{content:'';position:absolute;width:12px;height:12px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.2s}
+.toggle input:checked+.toggle-slider:before{transform:translateX(14px)}
+.ai-custom{background:#f5fdf9;border:1px solid #c8edd9;border-radius:10px;padding:0.875rem;margin-top:8px}
+.ai-custom-title{font-size:12px;font-weight:600;color:#085041;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.ai-custom-sub{font-size:11px;color:#666;margin-bottom:8px}
+.ai-custom textarea{font-size:12px;min-height:50px;border-color:#c8edd9}
+.ai-custom textarea:focus{border-color:#1D9E75}
+.ai-custom-btn{margin-top:6px;padding:6px 12px;background:#1D9E75;color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer}
+.active-clauses{background:#E1F5EE;border-radius:7px;padding:7px 10px;font-size:12px;color:#085041;margin-bottom:8px;display:none}
 @media(max-width:680px){.split{grid-template-columns:1fr}.preview-col{position:static}.doc-tabs{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.field.full{grid-column:1}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav>
-    <a href="index.html" class="nav-logo">RentReady</a>
+    <a href="index.html" class="nav-logo">Rent<span>Ready</span></a>
     <a href="index.html" class="nav-back">← Back to home</a>
   </nav>
   <div class="free-bar">
-    <span>Free plan: 2 documents per month</span>
+    <span>Free plan: 1 document per month</span>
     <a href="index.html#pricing" class="upgrade-link">Upgrade to Pro →</a>
   </div>
   <div class="doc-tabs">
@@ -94,100 +133,282 @@ textarea{resize:vertical;min-height:60px}
           </div>
         </div>
         <div class="card">
-          <div class="section-title">Special conditions (optional)</div>
+          <div class="section-title">Special conditions</div>
           <div class="field"><textarea id="l-special" placeholder="e.g. No pets. One parking bay included." oninput="updatePreview()"></textarea></div>
         </div>
-        <button class="copy-btn-main" onclick="copyDoc()">Copy document</button>
+
+        <div class="pro-section">
+          <div class="pro-header" onclick="toggleProSection()">
+            <div class="pro-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Pro</div>
+            <span class="pro-title">Optional clause library</span>
+            <span class="pro-chevron" id="pro-chevron">▼</span>
+          </div>
+          <div class="pro-body" id="pro-body">
+            <div class="active-clauses" id="active-clauses"></div>
+
+            <div class="clause-section">
+              <div class="clause-section-header" onclick="toggleCS('pets')">
+                <div class="cs-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="4" r="2"/><circle cx="6" cy="10" r="2"/><circle cx="18" cy="10" r="2"/><path d="M13 16c0 2.5-2 4-4.5 4S4 18.5 4 16c0-2 1.5-3.5 3.5-4.5l1.5-.5 1.5.5C12.5 12.5 13 14 13 16z"/></svg></div>
+                <span class="cs-name">Pets & animals</span>
+                <span class="cs-count" id="c-pets"></span>
+                <span class="cs-chevron" id="ch-pets">▼</span>
+              </div>
+              <div class="clause-body" id="cb-pets">
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Pet policy</div>
+                    <div class="clause-desc">Whether pets are permitted and under what conditions</div>
+                    <select class="clause-select visible" id="sel-pet-policy" onchange="handleSel(this,'ed-pet-policy','tog-pet-policy',{'no-pets':'No pets of any kind shall be kept on the Property without the prior written consent of the Landlord.','pets-deposit':'Pets are permitted subject to payment of an additional refundable pet deposit of R[AMOUNT]. The Tenant remains liable for all damage caused by pets.','pets-conditions':'Pets are permitted subject to prior written approval from the Landlord. Approval may be withheld at the Landlord sole discretion.'})">
+                      <option value="">Select policy...</option>
+                      <option value="no-pets">No pets allowed</option>
+                      <option value="pets-deposit">Pets allowed with deposit</option>
+                      <option value="pets-conditions">Pets allowed with approval</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-pet-policy" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-pet-policy" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Pet damage liability</div>
+                    <div class="clause-desc">Tenant liable for damage caused by pets</div>
+                    <textarea class="clause-edit" id="ed-pet-damage" oninput="updatePreview()">The Tenant shall be liable for any damage caused by pets kept on the Property beyond fair wear and tear, including damage to carpets, flooring, walls, and garden areas.</textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-pet-damage" onchange="toggleED('ed-pet-damage',this.checked);updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="clause-section">
+              <div class="clause-section-header" onclick="toggleCS('utils')">
+                <div class="cs-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <span class="cs-name">Utilities & services</span>
+                <span class="cs-count" id="c-utils"></span>
+                <span class="cs-chevron" id="ch-utils">▼</span>
+              </div>
+              <div class="clause-body" id="cb-utils">
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Electricity meter</div>
+                    <div class="clause-desc">Prepaid or conventional meter arrangement</div>
+                    <select class="clause-select visible" id="sel-elec" onchange="handleSel(this,'ed-elec','tog-elec',{'prepaid':'The Property has a prepaid electricity meter. The Tenant shall purchase their own tokens and shall not hold the Landlord liable for supply interruptions.','conventional':'The Tenant shall register and pay their own municipal electricity account directly with the relevant municipality.','recharge':'The Property has a prepaid meter. The Landlord shall purchase tokens on behalf of the Tenant and recharge the cost monthly.'})">
+                      <option value="">Select...</option>
+                      <option value="prepaid">Prepaid meter</option>
+                      <option value="conventional">Conventional meter</option>
+                      <option value="recharge">Landlord recharges</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-elec" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-elec" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Fibre & internet</div>
+                    <div class="clause-desc">Responsibility for internet connection</div>
+                    <select class="clause-select visible" id="sel-fibre" onchange="handleSel(this,'ed-fibre','tog-fibre',{'tenant':'The Tenant shall arrange and pay for their own internet connection. Installation requires the Landlords written consent.','landlord':'Fibre infrastructure is installed by the Landlord. The Tenant shall open their own account with a provider of their choice.','included':'Internet connectivity is included in the monthly rental. The Landlord may change the provider with reasonable notice.'})">
+                      <option value="">Select...</option>
+                      <option value="tenant">Tenant arranges own</option>
+                      <option value="landlord">Infrastructure provided</option>
+                      <option value="included">Included in rental</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-fibre" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-fibre" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Garden service</div>
+                    <div class="clause-desc">Who maintains the garden</div>
+                    <select class="clause-select visible" id="sel-garden" onchange="handleSel(this,'ed-garden','tog-garden',{'tenant':'The Tenant shall maintain the garden and outdoor areas in a neat condition at their own cost.','landlord':'A garden service is provided by the Landlord and included in the monthly rental.','shared':'The Tenant shall maintain the garden on a day-to-day basis. The Landlord shall provide necessary tools and equipment.'})">
+                      <option value="">Select...</option>
+                      <option value="tenant">Tenant maintains</option>
+                      <option value="landlord">Landlord provides service</option>
+                      <option value="shared">Shared responsibility</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-garden" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-garden" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Municipal interruptions</div>
+                    <div class="clause-desc">Landlord not liable for load shedding or water cuts</div>
+                    <textarea class="clause-edit" id="ed-municipal" oninput="updatePreview()">The Landlord shall not be liable for any interruption to water, electricity, or other municipal services caused by the municipality. The Tenant shall have no claim against the Landlord for such interruptions.</textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-municipal" onchange="toggleED('ed-municipal',this.checked);updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="clause-section">
+              <div class="clause-section-header" onclick="toggleCS('parking')">
+                <div class="cs-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                <span class="cs-name">Parking & vehicles</span>
+                <span class="cs-count" id="c-parking"></span>
+                <span class="cs-chevron" id="ch-parking">▼</span>
+              </div>
+              <div class="clause-body" id="cb-parking">
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Parking allocation</div>
+                    <div class="clause-desc">Number and type of bays included</div>
+                    <select class="clause-select visible" id="sel-parking" onchange="handleSel(this,'ed-parking','tog-parking',{'one':'One designated parking bay is included in the monthly rental. The Tenant shall use only the allocated bay.','two':'Two designated parking bays are included in the monthly rental.','garage':'One lock-up garage is included for parking of one private vehicle. The garage shall not be used for storage without consent.','none':'No parking is included in this lease. The Tenant shall make their own parking arrangements at their own cost.'})">
+                      <option value="">Select...</option>
+                      <option value="one">One bay</option>
+                      <option value="two">Two bays</option>
+                      <option value="garage">Lock-up garage</option>
+                      <option value="none">No parking</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-parking" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-parking" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Vehicle restrictions</div>
+                    <div class="clause-desc">No commercial vehicles or trailers on property</div>
+                    <textarea class="clause-edit" id="ed-vehicles" oninput="updatePreview()">The Tenant shall not park or store commercial vehicles, trailers, caravans, boats, or unroadworthy vehicles on the Property without prior written consent from the Landlord.</textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-vehicles" onchange="toggleED('ed-vehicles',this.checked);updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="clause-section">
+              <div class="clause-section-header" onclick="toggleCS('fixtures')">
+                <div class="cs-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                <span class="cs-name">Property & fixtures</span>
+                <span class="cs-count" id="c-fixtures"></span>
+                <span class="cs-chevron" id="ch-fixtures">▼</span>
+              </div>
+              <div class="clause-body" id="cb-fixtures">
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Furnished / unfurnished</div>
+                    <div class="clause-desc">Whether property is let with furniture</div>
+                    <select class="clause-select visible" id="sel-furnished" onchange="handleSel(this,'ed-furnished','tog-furnished',{'unfurnished':'The Property is let unfurnished. No furniture or appliances are included unless listed in the inspection report.','furnished':'The Property is let fully furnished as per the inventory attached to the inspection report. The Tenant shall maintain all furnishings in good condition.','semi':'The Property is let semi-furnished. Only the appliances listed in the inspection report are included.'})">
+                      <option value="">Select...</option>
+                      <option value="unfurnished">Unfurnished</option>
+                      <option value="furnished">Fully furnished</option>
+                      <option value="semi">Semi-furnished</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-furnished" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-furnished" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Geyser responsibility</div>
+                    <div class="clause-desc">Who maintains and replaces the geyser</div>
+                    <select class="clause-select visible" id="sel-geyser" onchange="handleSel(this,'ed-geyser','tog-geyser',{'landlord':'The Landlord shall be responsible for geyser maintenance and replacement at the Landlords cost.','tenant':'The Tenant shall be responsible for routine geyser maintenance. Replacement due to negligence shall be at the Tenants cost.','shared':'The Landlord shall be responsible for geyser replacement. The Tenant shall be responsible for routine maintenance.'})">
+                      <option value="">Select...</option>
+                      <option value="landlord">Landlord responsible</option>
+                      <option value="tenant">Tenant responsible</option>
+                      <option value="shared">Shared responsibility</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-geyser" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-geyser" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="clause-section">
+              <div class="clause-section-header" onclick="toggleCS('security')">
+                <div class="cs-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span class="cs-name">Security & access</span>
+                <span class="cs-count" id="c-security"></span>
+                <span class="cs-chevron" id="ch-security">▼</span>
+              </div>
+              <div class="clause-body" id="cb-security">
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Alarm system</div>
+                    <div class="clause-desc">Responsibility for monitoring fees and call-outs</div>
+                    <select class="clause-select visible" id="sel-alarm" onchange="handleSel(this,'ed-alarm','tog-alarm',{'tenant':'The Tenant shall be responsible for alarm monitoring fees and shall update the alarm code on occupation. False alarm call-out charges are for the Tenants account.','landlord':'The Landlord shall pay alarm monitoring fees. The Tenant shall be responsible for false alarm call-out charges.','none':'No alarm system is currently installed at the Property.'})">
+                      <option value="">Select...</option>
+                      <option value="tenant">Tenant pays monitoring</option>
+                      <option value="landlord">Landlord pays monitoring</option>
+                      <option value="none">No alarm</option>
+                    </select>
+                    <textarea class="clause-edit" id="ed-alarm" oninput="updatePreview()"></textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-alarm" onchange="updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Lock changes prohibited</div>
+                    <div class="clause-desc">Tenant may not change locks without consent</div>
+                    <textarea class="clause-edit" id="ed-locks" oninput="updatePreview()">The Tenant shall not change, add, or remove any locks without prior written consent from the Landlord. Any approved changes must be accompanied by a duplicate key provided to the Landlord.</textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-locks" onchange="toggleED('ed-locks',this.checked);updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="clause-section">
+              <div class="clause-section-header" onclick="toggleCS('subletting')">
+                <div class="cs-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                <span class="cs-name">Subletting & guests</span>
+                <span class="cs-count" id="c-subletting"></span>
+                <span class="cs-chevron" id="ch-subletting">▼</span>
+              </div>
+              <div class="clause-body" id="cb-subletting">
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Airbnb / short term rental ban</div>
+                    <div class="clause-desc">Prohibit listing on any short-term rental platform</div>
+                    <textarea class="clause-edit" id="ed-airbnb" oninput="updatePreview()">The Tenant shall not list or let the Property on any short-term rental platform including Airbnb, Booking.com, or similar services. Breach of this clause constitutes a material breach of this agreement.</textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-airbnb" onchange="toggleED('ed-airbnb',this.checked);updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+                <div class="clause-row">
+                  <div class="clause-main">
+                    <div class="clause-name">Occupant limit</div>
+                    <div class="clause-desc">Restrict number of permanent residents</div>
+                    <textarea class="clause-edit" id="ed-occupants" oninput="updatePreview()">The Property shall be occupied only by the persons named in this agreement. Any additional permanent occupants require prior written consent from the Landlord.</textarea>
+                  </div>
+                  <label class="toggle"><input type="checkbox" id="tog-occupants" onchange="toggleED('ed-occupants',this.checked);updateClauseCount();updatePreview()"><span class="toggle-slider"></span></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="ai-custom">
+              <div class="ai-custom-title">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#085041" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Write a custom clause
+              </div>
+              <div class="ai-custom-sub">Describe what you need in plain language and Claude will write the clause for you.</div>
+              <textarea id="ai-input" placeholder="e.g. The tenant cannot smoke anywhere on the property including the garden..."></textarea>
+              <button class="ai-custom-btn" onclick="writeClause()">Write clause with Claude →</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="copy-btn-main" onclick="copyDoc()">Copy lease agreement</button>
       </div>
 
       <div class="form-section" id="form-1">
-        <div class="card">
-          <div class="section-title">Parties</div>
-          <div class="grid">
-            <div class="field"><label>Landlord name</label><input id="n-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div>
-            <div class="field"><label>Tenant name</label><input id="n-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div>
-            <div class="field full"><label>Property address</label><input id="n-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="section-title">Notice details</div>
-          <div class="grid">
-            <div class="field"><label>Notice date</label><input id="n-date" type="date" oninput="updatePreview()"/></div>
-            <div class="field"><label>Vacate by</label><input id="n-vacate" type="date" oninput="updatePreview()"/></div>
-            <div class="field"><label>Reason</label><select id="n-reason" onchange="updatePreview()"><option>End of lease period</option><option>Breach of lease</option><option>Non-payment of rent</option><option>Landlord requires property</option></select></div>
-            <div class="field"><label>Province</label><select id="n-prov" onchange="updatePreview()"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div>
-            <div class="field full"><label>Additional details (optional)</label><textarea id="n-extra" placeholder="Any further context..." oninput="updatePreview()"></textarea></div>
-          </div>
-        </div>
+        <div class="card"><div class="section-title">Parties</div><div class="grid"><div class="field"><label>Landlord name</label><input id="n-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div><div class="field"><label>Tenant name</label><input id="n-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div><div class="field full"><label>Property address</label><input id="n-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div></div></div>
+        <div class="card"><div class="section-title">Notice details</div><div class="grid"><div class="field"><label>Notice date</label><input id="n-date" type="date" oninput="updatePreview()"/></div><div class="field"><label>Vacate by</label><input id="n-vacate" type="date" oninput="updatePreview()"/></div><div class="field"><label>Reason</label><select id="n-reason" onchange="updatePreview()"><option>End of lease period</option><option>Breach of lease</option><option>Non-payment of rent</option><option>Landlord requires property</option></select></div><div class="field"><label>Province</label><select id="n-prov" onchange="updatePreview()"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div><div class="field full"><label>Additional details (optional)</label><textarea id="n-extra" placeholder="Any further context..." oninput="updatePreview()"></textarea></div></div></div>
         <button class="copy-btn-main" onclick="copyDoc()">Copy document</button>
       </div>
 
       <div class="form-section" id="form-2">
-        <div class="card">
-          <div class="section-title">Parties & property</div>
-          <div class="grid">
-            <div class="field"><label>Landlord name</label><input id="p-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div>
-            <div class="field"><label>Tenant name</label><input id="p-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div>
-            <div class="field full"><label>Property address</label><input id="p-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="section-title">Payment details</div>
-          <div class="grid">
-            <div class="field"><label>Amount overdue (R)</label><input id="p-amt" type="number" placeholder="8500" oninput="updatePreview()"/></div>
-            <div class="field"><label>Month(s) overdue</label><input id="p-months" placeholder="March 2026" oninput="updatePreview()"/></div>
-            <div class="field"><label>Date of letter</label><input id="p-date" type="date" oninput="updatePreview()"/></div>
-            <div class="field"><label>Payment deadline</label><input id="p-deadline" type="date" oninput="updatePreview()"/></div>
-            <div class="field"><label>Warning number</label><select id="p-warn" onchange="updatePreview()"><option>First warning</option><option>Second warning</option><option>Final warning</option></select></div>
-          </div>
-        </div>
+        <div class="card"><div class="section-title">Parties & property</div><div class="grid"><div class="field"><label>Landlord name</label><input id="p-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div><div class="field"><label>Tenant name</label><input id="p-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div><div class="field full"><label>Property address</label><input id="p-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div></div></div>
+        <div class="card"><div class="section-title">Payment details</div><div class="grid"><div class="field"><label>Amount overdue (R)</label><input id="p-amt" type="number" placeholder="8500" oninput="updatePreview()"/></div><div class="field"><label>Month(s) overdue</label><input id="p-months" placeholder="March 2026" oninput="updatePreview()"/></div><div class="field"><label>Date of letter</label><input id="p-date" type="date" oninput="updatePreview()"/></div><div class="field"><label>Payment deadline</label><input id="p-deadline" type="date" oninput="updatePreview()"/></div><div class="field"><label>Warning number</label><select id="p-warn" onchange="updatePreview()"><option>First warning</option><option>Second warning</option><option>Final warning</option></select></div></div></div>
         <button class="copy-btn-main" onclick="copyDoc()">Copy document</button>
       </div>
 
       <div class="form-section" id="form-3">
-        <div class="card">
-          <div class="section-title">Inspection details</div>
-          <div class="grid">
-            <div class="field"><label>Landlord name</label><input id="i-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div>
-            <div class="field"><label>Tenant name</label><input id="i-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div>
-            <div class="field full"><label>Property address</label><input id="i-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div>
-            <div class="field"><label>Inspection date</label><input id="i-date" type="date" oninput="updatePreview()"/></div>
-            <div class="field"><label>Type</label><select id="i-type" onchange="updatePreview()"><option>Move-in</option><option>Move-out</option><option>Routine</option></select></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="section-title">Room conditions</div>
-          <div class="grid">
-            <div class="field"><label>Living areas</label><select id="i-living" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
-            <div class="field"><label>Kitchen</label><select id="i-kitchen" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
-            <div class="field"><label>Bathroom(s)</label><select id="i-bath" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
-            <div class="field"><label>Bedroom(s)</label><select id="i-bed" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
-            <div class="field"><label>Exterior/garden</label><select id="i-ext" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
-            <div class="field"><label>Appliances</label><select id="i-app" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option><option>N/A</option></select></div>
-            <div class="field full"><label>Noted defects</label><textarea id="i-defects" placeholder="e.g. Crack in bathroom tiles..." oninput="updatePreview()"></textarea></div>
-          </div>
-        </div>
+        <div class="card"><div class="section-title">Inspection details</div><div class="grid"><div class="field"><label>Landlord name</label><input id="i-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div><div class="field"><label>Tenant name</label><input id="i-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div><div class="field full"><label>Property address</label><input id="i-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div><div class="field"><label>Inspection date</label><input id="i-date" type="date" oninput="updatePreview()"/></div><div class="field"><label>Type</label><select id="i-type" onchange="updatePreview()"><option>Move-in</option><option>Move-out</option><option>Routine</option></select></div></div></div>
+        <div class="card"><div class="section-title">Room conditions</div><div class="grid"><div class="field"><label>Living areas</label><select id="i-living" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div><div class="field"><label>Kitchen</label><select id="i-kitchen" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div><div class="field"><label>Bathroom(s)</label><select id="i-bath" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div><div class="field"><label>Bedroom(s)</label><select id="i-bed" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div><div class="field"><label>Exterior/garden</label><select id="i-ext" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option></select></div><div class="field"><label>Appliances</label><select id="i-app" onchange="updatePreview()"><option>Good</option><option>Fair</option><option>Poor</option><option>N/A</option></select></div><div class="field full"><label>Noted defects</label><textarea id="i-defects" placeholder="e.g. Crack in bathroom tiles..." oninput="updatePreview()"></textarea></div></div></div>
         <button class="copy-btn-main" onclick="copyDoc()">Copy document</button>
       </div>
 
       <div class="form-section" id="form-4">
-        <div class="card">
-          <div class="section-title">Parties</div>
-          <div class="grid">
-            <div class="field"><label>Landlord name</label><input id="t-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div>
-            <div class="field"><label>Tenant name</label><input id="t-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div>
-            <div class="field full"><label>Property address</label><input id="t-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div>
-            <div class="field"><label>Province</label><select id="t-prov" onchange="updatePreview()"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div>
-            <div class="field"><label>Complaint reference</label><input id="t-ref" placeholder="RHT/WC/2026/001" oninput="updatePreview()"/></div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="section-title">Complaint & response</div>
-          <div class="grid">
-            <div class="field full"><label>Nature of complaint</label><textarea id="t-complaint" placeholder="e.g. Tenant claims deposit was not returned..." oninput="updatePreview()"></textarea></div>
-            <div class="field full"><label>Landlord's response</label><textarea id="t-response" placeholder="e.g. Deposit was held pending inspection..." oninput="updatePreview()"></textarea></div>
-          </div>
-        </div>
+        <div class="card"><div class="section-title">Parties</div><div class="grid"><div class="field"><label>Landlord name</label><input id="t-ll" placeholder="Thabo Nkosi" oninput="updatePreview()"/></div><div class="field"><label>Tenant name</label><input id="t-tn" placeholder="Sarah van der Merwe" oninput="updatePreview()"/></div><div class="field full"><label>Property address</label><input id="t-prop" placeholder="4B Ocean View Drive, Sea Point" oninput="updatePreview()"/></div><div class="field"><label>Province</label><select id="t-prov" onchange="updatePreview()"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div><div class="field"><label>Complaint reference</label><input id="t-ref" placeholder="RHT/WC/2026/001" oninput="updatePreview()"/></div></div></div>
+        <div class="card"><div class="section-title">Complaint & response</div><div class="grid"><div class="field full"><label>Nature of complaint</label><textarea id="t-complaint" placeholder="e.g. Tenant claims deposit was not returned..." oninput="updatePreview()"></textarea></div><div class="field full"><label>Landlord's response</label><textarea id="t-response" placeholder="e.g. Deposit was held pending inspection..." oninput="updatePreview()"></textarea></div></div></div>
         <button class="copy-btn-main" onclick="copyDoc()">Copy document</button>
       </div>
     </div>
@@ -214,24 +435,93 @@ function switchTab(n){
   document.getElementById('preview-title').textContent=titles[n];
   updatePreview();
 }
+function toggleProSection(){
+  const body=document.getElementById('pro-body');
+  const chev=document.getElementById('pro-chevron');
+  const open=body.classList.toggle('open');
+  chev.classList.toggle('open',open);
+}
+function toggleCS(id){
+  const body=document.getElementById('cb-'+id);
+  const chev=document.getElementById('ch-'+id);
+  const open=body.classList.toggle('open');
+  chev.classList.toggle('open',open);
+}
+function handleSel(sel,edId,togId,map){
+  const val=sel.value;
+  const ed=document.getElementById(edId);
+  const tog=document.getElementById(togId);
+  if(val){
+    ed.style.display='block';
+    ed.value=map[val]||'';
+    tog.checked=true;
+  } else {
+    ed.style.display='none';
+    tog.checked=false;
+  }
+  updateClauseCount();
+  updatePreview();
+}
+function toggleED(edId,checked){
+  document.getElementById(edId).style.display=checked?'block':'none';
+}
+function updateClauseCount(){
+  const pairs=[
+    ['tog-pet-policy','ed-pet-policy'],['tog-pet-damage','ed-pet-damage'],
+    ['tog-elec','ed-elec'],['tog-fibre','ed-fibre'],['tog-garden','ed-garden'],['tog-municipal','ed-municipal'],
+    ['tog-parking','ed-parking'],['tog-vehicles','ed-vehicles'],
+    ['tog-furnished','ed-furnished'],['tog-geyser','ed-geyser'],
+    ['tog-alarm','ed-alarm'],['tog-locks','ed-locks'],
+    ['tog-airbnb','ed-airbnb'],['tog-occupants','ed-occupants']
+  ];
+  let total=0;
+  const cats={pets:['tog-pet-policy','tog-pet-damage'],utils:['tog-elec','tog-fibre','tog-garden','tog-municipal'],parking:['tog-parking','tog-vehicles'],fixtures:['tog-furnished','tog-geyser'],security:['tog-alarm','tog-locks'],subletting:['tog-airbnb','tog-occupants']};
+  pairs.forEach(([togId])=>{const el=document.getElementById(togId);if(el&&el.checked)total++});
+  const ac=document.getElementById('active-clauses');
+  ac.style.display=total>0?'block':'none';
+  ac.textContent=total+' optional clause'+(total!==1?'s':'')+' selected — included in your lease';
+  Object.keys(cats).forEach(cat=>{
+    const count=cats[cat].filter(id=>{const el=document.getElementById(id);return el&&el.checked}).length;
+    const el=document.getElementById('c-'+cat);
+    if(el)el.textContent=count>0?count+' selected':'';
+  });
+}
+function getActiveClauses(){
+  const pairs=[
+    ['tog-pet-policy','ed-pet-policy'],['tog-pet-damage','ed-pet-damage'],
+    ['tog-elec','ed-elec'],['tog-fibre','ed-fibre'],['tog-garden','ed-garden'],['tog-municipal','ed-municipal'],
+    ['tog-parking','ed-parking'],['tog-vehicles','ed-vehicles'],
+    ['tog-furnished','ed-furnished'],['tog-geyser','ed-geyser'],
+    ['tog-alarm','ed-alarm'],['tog-locks','ed-locks'],
+    ['tog-airbnb','ed-airbnb'],['tog-occupants','ed-occupants']
+  ];
+  return pairs.filter(([togId,edId])=>{
+    const tog=document.getElementById(togId);
+    const ed=document.getElementById(edId);
+    return tog&&tog.checked&&ed&&ed.value.trim();
+  }).map(([,edId])=>document.getElementById(edId).value.trim());
+}
 function v(id){const el=document.getElementById(id);return el?el.value||'':''}
 function r(id){const val=document.getElementById(id)?document.getElementById(id).value:'';return val?'R'+Number(val).toLocaleString('en-ZA'):'R[AMOUNT]'}
 const today=()=>new Date().toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'});
 function buildDoc(n){
   if(n===0){
     const ll=v('l-ll')||'[Landlord Name]',llid=v('l-llid')||'[ID]',lladdr=v('l-lladdr')||'[Landlord Address]',tn=v('l-tn')||'[Tenant Name]',tnid=v('l-tnid')||'[ID]',tnemail=v('l-tnemail')||'[Email]',prop=v('l-prop')||'[Property Address]',rent=r('l-rent'),dep=r('l-dep'),start=v('l-start')||'[Start Date]',dur=v('l-dur')||'12 months',pay=v('l-pay')||'1st of the month',prov=v('l-prov')||'Western Cape',special=v('l-special');
-    return `RESIDENTIAL LEASE AGREEMENT\nRental Housing Act 50 of 1999\n\nDate: ${today()}\n\nLandlord:  ${ll} (${llid})\nAddress:   ${lladdr}\n\nTenant:    ${tn} (${tnid})\nEmail:     ${tnemail}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n1. PROPERTY\n${prop}, ${prov}\n\n2. LEASE PERIOD\nCommences ${start} for ${dur}.\n\n3. RENTAL\n${rent} per month, due ${pay} by EFT.\nAnnual escalation at CPI.\n\n4. DEPOSIT\n${dep} held in interest-bearing account.\nRefunded within 14 days of vacation.\n\n5. UTILITIES\nTenant: electricity, water, refuse.\nLandlord: rates, taxes, levies.\n\n6. MAINTENANCE\nTenant to maintain clean condition.\nLiable for damage beyond fair wear and tear.\n\n7. OCCUPATION\nResidential use only. No subletting\nwithout written consent.\n\n8. TERMINATION\nOne calendar month's written notice.\nBreach: 20 business days to remedy.\n\n9. DISPUTES\nReferred to Rental Housing Tribunal\nof ${prov} before legal proceedings.${special?'\n\n10. SPECIAL CONDITIONS\n'+special:''}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nLandlord: _________________ Date: _____\n${ll}\n\nTenant:   _________________ Date: _____\n${tn}\n\nWitness:  _________________ Date: _____`;
+    const optClauses=getActiveClauses();
+    let clauseNum=11;
+    const optSection=optClauses.length>0?'\n\n'+optClauses.map(c=>`${clauseNum++}. ADDITIONAL TERMS\n\n${c}`).join('\n\n'):'';
+    return `RESIDENTIAL LEASE AGREEMENT\nRental Housing Act 50 of 1999\n\nDate: ${today()}\n\nLandlord:  ${ll} (${llid})\nAddress:   ${lladdr}\n\nTenant:    ${tn} (${tnid})\nEmail:     ${tnemail}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n1. PROPERTY\n${prop}, ${prov}\n\n2. LEASE PERIOD\nCommences ${start} for ${dur}.\n\n3. RENTAL\n${rent} per month, due ${pay} by EFT.\nAnnual escalation at CPI.\n\n4. DEPOSIT\n${dep} held in interest-bearing account.\nRefunded within 14 days of vacation.\n\n5. UTILITIES\nTenant: electricity, water, refuse.\nLandlord: rates, taxes, levies.\n\n6. MAINTENANCE\nTenant to maintain clean condition.\nLiable for damage beyond fair wear and tear.\n\n7. OCCUPATION\nResidential use only. No subletting\nwithout written consent.\n\n8. TERMINATION\nOne calendar month's written notice.\nBreach: 20 business days to remedy.\n\n9. DISPUTES\nReferred to Rental Housing Tribunal\nof ${prov} before legal proceedings.${special?'\n\n10. SPECIAL CONDITIONS\n\n'+special:''}${optSection}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nLandlord: _________________ Date: _____\n${ll}\n\nTenant:   _________________ Date: _____\n${tn}\n\nWitness:  _________________ Date: _____`;
   } else if(n===1){
-    const ll=v('n-ll')||'[Landlord]',tn=v('n-tn')||'[Tenant]',prop=v('n-prop')||'[Property]',date=v('n-date')||today(),vacate=v('n-vacate')||'[Vacate Date]',reason=v('n-reason')||'End of lease period',prov=v('n-prov')||'Western Cape',extra=v('n-extra');
+    const ll=v('n-ll')||'[Landlord]',tn=v('n-tn')||'[Tenant]',prop=v('n-prop')||'[Property]',date=v('n-date')||today(),vacate=v('n-vacate')||'[Vacate Date]',reason=v('n-reason'),prov=v('n-prov'),extra=v('n-extra');
     return `NOTICE TO VACATE\nRental Housing Act 50 of 1999\n\nDate: ${date}\nTo:   ${tn}\nRe:   ${prop}\nFrom: ${ll}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nDear ${tn},\n\nYou are required to vacate the above\nproperty by ${vacate}.\n\nReason: ${reason}\n\nYou must:\n1. Vacate by ${vacate}\n2. Return all keys and access devices\n3. Be available for outgoing inspection\n4. Settle all outstanding accounts\n5. Leave property clean and tidy\n\nFailure to vacate may result in the\nLandlord approaching the Rental Housing\nTribunal of ${prov} or court for an\neviction order under the PIE Act.${extra?'\n\nNote: '+extra:''}\n\nYours sincerely,\n\n_________________\n${ll} (Landlord)\nDate: ___________`;
   } else if(n===2){
-    const ll=v('p-ll')||'[Landlord]',tn=v('p-tn')||'[Tenant]',prop=v('p-prop')||'[Property]',amt=r('p-amt'),months=v('p-months')||'[Month]',date=v('p-date')||today(),deadline=v('p-deadline')||'[Deadline]',warn=v('p-warn')||'First warning';
-    return `LATE PAYMENT WARNING\n${warn.toUpperCase()}\n\nDate: ${date}\nTo:   ${tn}\nRe:   ${prop}\nFrom: ${ll}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nDear ${tn},\n\nThis is a formal ${warn.toLowerCase()}\nregarding outstanding rental.\n\nAmount overdue: ${amt}\nPeriod(s):      ${months}\nPay by:         ${deadline}\n\nPayment by EFT only. Send proof of\npayment immediately upon payment.\n\n${warn==='Final warning'?'FINAL WARNING: Failure to pay will\nresult in a Notice to Vacate and\nTribunal or court proceedings.':'Failure to pay may result in\nescalation of this matter.'}\n\nYours sincerely,\n\n_________________\n${ll} (Landlord)\nDate: ___________`;
+    const ll=v('p-ll')||'[Landlord]',tn=v('p-tn')||'[Tenant]',prop=v('p-prop')||'[Property]',amt=r('p-amt'),months=v('p-months')||'[Month]',date=v('p-date')||today(),deadline=v('p-deadline')||'[Deadline]',warn=v('p-warn');
+    return `LATE PAYMENT WARNING\n${warn.toUpperCase()}\n\nDate: ${date}\nTo:   ${tn}\nRe:   ${prop}\nFrom: ${ll}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nDear ${tn},\n\nThis is a formal ${warn.toLowerCase()}\nregarding outstanding rental.\n\nAmount overdue: ${amt}\nPeriod(s):      ${months}\nPay by:         ${deadline}\n\nPayment by EFT only. Send proof immediately.\n\n${warn==='Final warning'?'FINAL WARNING: Failure to pay will\nresult in a Notice to Vacate and\nTribunal or court proceedings.':'Failure to pay may result in\nescalation of this matter.'}\n\nYours sincerely,\n\n_________________\n${ll} (Landlord)\nDate: ___________`;
   } else if(n===3){
-    const ll=v('i-ll')||'[Landlord]',tn=v('i-tn')||'[Tenant]',prop=v('i-prop')||'[Property]',date=v('i-date')||today(),type=v('i-type')||'Move-in',living=v('i-living')||'Good',kitchen=v('i-kitchen')||'Good',bath=v('i-bath')||'Good',bed=v('i-bed')||'Good',ext=v('i-ext')||'Good',app=v('i-app')||'Good',defects=v('i-defects');
+    const ll=v('i-ll')||'[Landlord]',tn=v('i-tn')||'[Tenant]',prop=v('i-prop')||'[Property]',date=v('i-date')||today(),type=v('i-type'),living=v('i-living'),kitchen=v('i-kitchen'),bath=v('i-bath'),bed=v('i-bed'),ext=v('i-ext'),app=v('i-app'),defects=v('i-defects');
     return `PROPERTY INSPECTION REPORT\nRental Housing Act 50 of 1999\n\nType:     ${type}\nDate:     ${date}\nProperty: ${prop}\nLandlord: ${ll}\nTenant:   ${tn}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nCONDITION SUMMARY\n\n  Living areas:  ${living}\n  Kitchen:       ${kitchen}\n  Bathroom(s):   ${bath}\n  Bedroom(s):    ${bed}\n  Exterior:      ${ext}\n  Appliances:    ${app}\n\nDEFECTS / DAMAGE\n\n${defects||'None noted at time of inspection.'}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nLandlord: __________ Date: _____\n${ll}\n\nTenant:   __________ Date: _____\n${tn}`;
   } else if(n===4){
-    const ll=v('t-ll')||'[Landlord]',tn=v('t-tn')||'[Tenant]',prop=v('t-prop')||'[Property]',prov=v('t-prov')||'Western Cape',ref=v('t-ref')||'[Reference]',complaint=v('t-complaint')||'[Complaint details]',response=v('t-response')||'[Landlord response]';
+    const ll=v('t-ll')||'[Landlord]',tn=v('t-tn')||'[Tenant]',prop=v('t-prop')||'[Property]',prov=v('t-prov'),ref=v('t-ref')||'[Reference]',complaint=v('t-complaint')||'[Complaint]',response=v('t-response')||'[Response]';
     return `TRIBUNAL COMPLAINT RESPONSE\n\nDate: ${today()}\nRef:  ${ref}\n\nTo:   Rental Housing Tribunal, ${prov}\nFrom: ${ll} (Respondent)\nRe:   ${prop}\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\n1. NATURE OF COMPLAINT\n${complaint}\n\n2. LANDLORD'S RESPONSE\n${response}\n\n3. SUPPORTING DOCUMENTS\n[ ] Signed lease agreement\n[ ] Deposit account confirmation\n[ ] Inspection reports\n[ ] Payment records\n[ ] Tenant correspondence\n\n4. RELIEF SOUGHT\nDismiss complaint or make equitable\ndetermination.\n\n━━━━━━━━━━━━━━━━━━━━━━━━\n\nI confirm this information is true\nand correct.\n\n_________________\n${ll} (Landlord)\nDate: ___________`;
   }
   return '';
@@ -243,6 +533,11 @@ function copyDoc(){
   navigator.clipboard.writeText(text).then(()=>{
     document.querySelectorAll('.copy-btn-main,.copy-btn').forEach(b=>{const o=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=o,2000)});
   });
+}
+function writeClause(){
+  const input=document.getElementById('ai-input').value.trim();
+  if(!input)return;
+  window.open('https://claude.ai/new?q='+encodeURIComponent('Please write a formal legally-aware clause for a South African residential lease agreement based on this description: "'+input+'". Reference the Rental Housing Act 50 of 1999 where appropriate. Keep it concise and professional.'),'_blank');
 }
 const params=new URLSearchParams(window.location.search);
 const docParam=params.get('doc');
