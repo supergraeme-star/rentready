@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RentReady — Document Generator</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a}
+.wrap{max-width:720px;margin:0 auto;padding:0 1.5rem 5rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid #f0f0f0;margin-bottom:2rem}
+.nav-logo{font-size:16px;font-weight:600;color:#1a1a1a;text-decoration:none}
+.nav-back{font-size:13px;color:#666;text-decoration:none;border:1px solid #ddd;padding:6px 12px;border-radius:8px}
+.nav-back:hover{background:#f5f5f5}
+.page-title{font-size:26px;font-weight:600;margin-bottom:4px}
+.page-sub{font-size:15px;color:#666;margin-bottom:1.5rem}
+.free-notice{background:#f9f9f9;border-radius:8px;padding:10px 14px;font-size:13px;color:#666;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center}
+.upgrade-link{font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;border:1px solid #ddd;padding:5px 10px;border-radius:8px}
+.upgrade-link:hover{background:#f5f5f5}
+.doc-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:1.5rem}
+.tab{padding:8px 4px;font-size:11px;text-align:center;border:1px solid #ddd;border-radius:8px;cursor:pointer;color:#666;background:#fff;line-height:1.4}
+.tab:hover{background:#f5f5f5}
+.tab.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+.section-title{font-size:12px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:1rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;color:#666}
+input,select,textarea{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#fff;color:#1a1a1a;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#888}
+textarea{resize:vertical;min-height:70px}
+.generate-btn{width:100%;padding:11px;background:#1a1a1a;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;margin-top:0.25rem}
+.generate-btn:hover{opacity:0.85}
+.output-card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:1.5rem;margin-top:1rem;display:none}
+.output-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid #f0f0f0}
+.output-title{font-size:15px;font-weight:600}
+.copy-btn{font-size:13px;padding:6px 14px;border:1px solid #ddd;border-radius:8px;background:transparent;color:#666;cursor:pointer}
+.copy-btn:hover{background:#f5f5f5}
+.doc-text{font-size:13px;line-height:1.8;color:#1a1a1a;white-space:pre-wrap}
+.disclaimer{font-size:11px;color:#aaa;margin-top:1rem;padding-top:1rem;border-top:1px solid #f0f0f0}
+.form-section{display:none}
+.form-section.active{display:block}
+@media(max-width:520px){.doc-tabs{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.field.full{grid-column:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html" class="nav-logo">RentReady</a>
+    <a href="index.html" class="nav-back">← Back to home</a>
+  </nav>
+
+  <div class="page-title">Document generator</div>
+  <div class="page-sub">Select a document type, fill in the details, and generate in seconds.</div>
+
+  <div class="free-notice">
+    <span>Free plan: 2 documents per month</span>
+    <a href="index.html#pricing" class="upgrade-link">Upgrade to Pro →</a>
+  </div>
+
+  <div class="doc-tabs">
+    <div class="tab active" onclick="switchTab(0)">Lease agreement</div>
+    <div class="tab" onclick="switchTab(1)">Notice to vacate</div>
+    <div class="tab" onclick="switchTab(2)">Late payment warning</div>
+    <div class="tab" onclick="switchTab(3)">Inspection report</div>
+    <div class="tab" onclick="switchTab(4)">Tribunal response</div>
+  </div>
+
+  <div class="form-section active" id="form-0">
+    <div class="card">
+      <div class="section-title">Landlord details</div>
+      <div class="grid">
+        <div class="field"><label>Full name</label><input id="l-ll-name" placeholder="e.g. Thabo Nkosi"/></div>
+        <div class="field"><label>ID / reg number</label><input id="l-ll-id" placeholder="e.g. 8001015009087"/></div>
+        <div class="field full"><label>Address</label><input id="l-ll-addr" placeholder="e.g. 12 Main Road, Claremont"/></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Tenant details</div>
+      <div class="grid">
+        <div class="field"><label>Full name</label><input id="l-tn-name" placeholder="e.g. Sarah van der Merwe"/></div>
+        <div class="field"><label>ID number</label><input id="l-tn-id" placeholder="e.g. 9203145009087"/></div>
+        <div class="field full"><label>Email</label><input id="l-tn-email" placeholder="e.g. sarah@email.com"/></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Property & lease terms</div>
+      <div class="grid">
+        <div class="field full"><label>Property address</label><input id="l-prop" placeholder="e.g. 4B Ocean View Drive, Sea Point"/></div>
+        <div class="field"><label>Monthly rental (R)</label><input id="l-rent" type="number" placeholder="8500"/></div>
+        <div class="field"><label>Deposit (R)</label><input id="l-dep" type="number" placeholder="17000"/></div>
+        <div class="field"><label>Start date</label><input id="l-start" type="date"/></div>
+        <div class="field"><label>Duration</label><select id="l-dur"><option>12 months</option><option>6 months</option><option>Month-to-month</option><option>24 months</option></select></div>
+        <div class="field"><label>Payment due</label><select id="l-pay"><option>1st of the month</option><option>3rd of the month</option><option>7th of the month</option><option>15th of the month</option></select></div>
+        <div class="field"><label>Province</label><select id="l-prov"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Special conditions (optional)</div>
+      <div class="field"><textarea id="l-special" placeholder="e.g. No pets. One parking bay included."></textarea></div>
+    </div>
+    <button class="generate-btn" onclick="generate(0)">Generate lease agreement</button>
+  </div>
+
+  <div class="form-section" id="form-1">
+    <div class="card">
+      <div class="section-title">Parties</div>
+      <div class="grid">
+        <div class="field"><label>Landlord name</label><input id="n-ll" placeholder="e.g. Thabo Nkosi"/></div>
+        <div class="field"><label>Tenant name</label><input id="n-tn" placeholder="e.g. Sarah van der Merwe"/></div>
+        <div class="field full"><label>Property address</label><input id="n-prop" placeholder="e.g. 4B Ocean View Drive, Sea Point"/></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Notice details</div>
+      <div class="grid">
+        <div class="field"><label>Notice date</label><input id="n-date" type="date"/></div>
+        <div class="field"><label>Vacate by date</label><input id="n-vacate" type="date"/></div>
+        <div class="field"><label>Reason</label><select id="n-reason"><option>End of lease period</option><option>Breach of lease</option><option>Non-payment of rent</option><option>Landlord requires property</option></select></div>
+        <div class="field"><label>Province</label><select id="n-prov"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div>
+        <div class="field full"><label>Additional details (optional)</label><textarea id="n-extra" placeholder="Any further context..."></textarea></div>
+      </div>
+    </div>
+    <button class="generate-btn" onclick="generate(1)">Generate notice to vacate</button>
+  </div>
+
+  <div class="form-section" id="form-2">
+    <div class="card">
+      <div class="section-title">Parties & property</div>
+      <div class="grid">
+        <div class="field"><label>Landlord name</label><input id="p-ll" placeholder="e.g. Thabo Nkosi"/></div>
+        <div class="field"><label>Tenant name</label><input id="p-tn" placeholder="e.g. Sarah van der Merwe"/></div>
+        <div class="field full"><label>Property address</label><input id="p-prop" placeholder="e.g. 4B Ocean View Drive, Sea Point"/></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Payment details</div>
+      <div class="grid">
+        <div class="field"><label>Amount overdue (R)</label><input id="p-amt" type="number" placeholder="8500"/></div>
+        <div class="field"><label>Month(s) overdue</label><input id="p-months" placeholder="e.g. March 2026"/></div>
+        <div class="field"><label>Date of letter</label><input id="p-date" type="date"/></div>
+        <div class="field"><label>Payment deadline</label><input id="p-deadline" type="date"/></div>
+        <div class="field"><label>Warning number</label><select id="p-warn"><option>First warning</option><option>Second warning</option><option>Final warning</option></select></div>
+      </div>
+    </div>
+    <button class="generate-btn" onclick="generate(2)">Generate warning letter</button>
+  </div>
+
+  <div class="form-section" id="form-3">
+    <div class="card">
+      <div class="section-title">Inspection details</div>
+      <div class="grid">
+        <div class="field"><label>Landlord name</label><input id="i-ll" placeholder="e.g. Thabo Nkosi"/></div>
+        <div class="field"><label>Tenant name</label><input id="i-tn" placeholder="e.g. Sarah van der Merwe"/></div>
+        <div class="field full"><label>Property address</label><input id="i-prop" placeholder="e.g. 4B Ocean View Drive, Sea Point"/></div>
+        <div class="field"><label>Inspection date</label><input id="i-date" type="date"/></div>
+        <div class="field"><label>Type</label><select id="i-type"><option>Move-in</option><option>Move-out</option><option>Routine</option></select></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Room conditions</div>
+      <div class="grid">
+        <div class="field"><label>Living areas</label><select id="i-living"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
+        <div class="field"><label>Kitchen</label><select id="i-kitchen"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
+        <div class="field"><label>Bathroom(s)</label><select id="i-bath"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
+        <div class="field"><label>Bedroom(s)</label><select id="i-bed"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
+        <div class="field"><label>Exterior / garden</label><select id="i-ext"><option>Good</option><option>Fair</option><option>Poor</option></select></div>
+        <div class="field"><label>Appliances</label><select id="i-app"><option>Good</option><option>Fair</option><option>Poor</option><option>N/A</option></select></div>
+        <div class="field full"><label>Noted defects or damage</label><textarea id="i-defects" placeholder="e.g. Crack in bathroom tiles, scuff marks on lounge wall..."></textarea></div>
+      </div>
+    </div>
+    <button class="generate-btn" onclick="generate(3)">Generate inspection report</button>
+  </div>
+
+  <div class="form-section" id="form-4">
+    <div class="card">
+      <div class="section-title">Parties</div>
+      <div class="grid">
+        <div class="field"><label>Landlord name</label><input id="t-ll" placeholder="e.g. Thabo Nkosi"/></div>
+        <div class="field"><label>Tenant name</label><input id="t-tn" placeholder="e.g. Sarah van der Merwe"/></div>
+        <div class="field full"><label>Property address</label><input id="t-prop" placeholder="e.g. 4B Ocean View Drive, Sea Point"/></div>
+        <div class="field"><label>Province</label><select id="t-prov"><option>Western Cape</option><option>Gauteng</option><option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Other</option></select></div>
+        <div class="field"><label>Complaint reference</label><input id="t-ref" placeholder="e.g. RHT/WC/2026/001"/></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Complaint & response</div>
+      <div class="grid">
+        <div class="field full"><label>Nature of tenant's complaint</label><textarea id="t-complaint" placeholder="e.g. Tenant claims deposit was not returned within 14 days."></textarea></div>
+        <div class="field full"><label>Landlord's response / facts</label><textarea id="t-response" placeholder="e.g. Deposit was held pending outgoing inspection..."></textarea></div>
+      </div>
+    </div>
+    <button class="generate-btn" onclick="generate(4)">Generate tribunal response</button>
+  </div>
+
+  <div class="output-card" id="output">
+    <div class="output-header">
+      <span class="output-title" id="out-title">Document</span>
+      <button class="copy-btn" onclick="copyDoc()">Copy document</button>
+    </div>
+    <div class="doc-text" id="doc-content"></div>
+    <div class="disclaimer">This document is generated for informational purposes and does not constitute legal advice. Consult a qualified attorney for legal matters. Generated with reference to the Rental Housing Act 50 of 1999 (South Africa).</div>
+  </div>
+</div>
+<script>
+function switchTab(n){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('.form-section').forEach((f,i)=>f.classList.toggle('active',i===n));
+  document.getElementById('output').style.display='none';
+}
+function v(id){return document.getElementById(id).value||''}
+function r(id){const val=document.getElementById(id).value;return val?'R'+Number(val).toLocaleString('en-ZA'):'[AMOUNT]'}
+const today=()=>new Date().toLocaleDateString('en-ZA',{day:'numeric',month:'long',year:'numeric'});
+function generate(n){
+  let doc='',title='';
+  if(n===0){
+    const ll=v('l-ll-name')||'[LANDLORD]',llid=v('l-ll-id'),lladdr=v('l-ll-addr'),tn=v('l-tn-name')||'[TENANT]',tnid=v('l-tn-id'),tnemail=v('l-tn-email'),prop=v('l-prop')||'[PROPERTY]',rent=r('l-rent'),dep=r('l-dep'),start=v('l-start')||'[DATE]',dur=v('l-dur'),pay=v('l-pay'),prov=v('l-prov'),special=v('l-special');
+    title='Residential Lease Agreement';
+    doc=`RESIDENTIAL LEASE AGREEMENT\nIn terms of the Rental Housing Act 50 of 1999\n\nDate: ${today()}\n\nPARTIES\n\nLandlord:  ${ll}\nID/Reg No: ${llid}\nAddress:   ${lladdr}\n\nTenant:    ${tn}\nID No:     ${tnid}\nEmail:     ${tnemail}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n1. LEASED PREMISES\n\nThe Landlord leases to the Tenant the residential property at:\n${prop} (${prov})\n\n2. LEASE PERIOD\n\n2.1 This lease commences on ${start} for a period of ${dur}.\n2.2 After expiry, continued occupation without a new agreement converts the lease to month-to-month, terminable on one calendar month's written notice.\n\n3. RENTAL\n\n3.1 Monthly rental: ${rent}, payable in advance on or before the ${pay}.\n3.2 Payment by EFT into the Landlord's nominated account.\n3.3 Annual escalation at CPI as published by Statistics South Africa, unless otherwise agreed in writing.\n\n4. DEPOSIT\n\n4.1 Deposit: ${dep}, payable on signature.\n4.2 Held in an interest-bearing account per Section 5 of the Rental Housing Act.\n4.3 Refunded within 14 days of vacation, less lawful deductions.\n\n5. UTILITIES\n\n5.1 Tenant responsible for electricity, water, and refuse removal.\n5.2 Landlord responsible for rates, taxes, and levies.\n\n6. MAINTENANCE\n\n6.1 Tenant to maintain the property in a clean and habitable condition.\n6.2 Tenant to notify Landlord promptly of any damage or required repairs.\n6.3 Tenant liable for damage caused by negligence or misuse. Fair wear and tear is the Landlord's responsibility.\n\n7. OCCUPATION\n\n7.1 Residential use only.\n7.2 No subletting without prior written consent from the Landlord.\n\n8. INSPECTION\n\n8.1 Joint incoming and outgoing inspections shall be conducted and signed by both parties.\n\n9. TERMINATION\n\n9.1 One calendar month's written notice required at end of lease period.\n9.2 Breach unremedied within 20 business days of written notice entitles the Landlord to cancel and seek relief via the Rental Housing Tribunal or court.\n\n10. DISPUTES\n\n10.1 Disputes to be referred to the Rental Housing Tribunal of ${prov} before any legal proceedings.${special?'\n\n11. SPECIAL CONDITIONS\n\n'+special:''}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nSIGNATURES\n\nLandlord: _______________________   Date: _______________\n${ll}\n\nTenant:   _______________________   Date: _______________\n${tn}\n\nWitness:  _______________________   Date: _______________`;
+  } else if(n===1){
+    const ll=v('n-ll')||'[LANDLORD]',tn=v('n-tn')||'[TENANT]',prop=v('n-prop')||'[PROPERTY]',date=v('n-date')||today(),vacate=v('n-vacate')||'[DATE]',reason=v('n-reason'),prov=v('n-prov'),extra=v('n-extra');
+    title='Notice to Vacate';
+    doc=`NOTICE TO VACATE\nIn terms of the Rental Housing Act 50 of 1999\n\nDate: ${date}\n\nTO:   ${tn}\nRE:   ${prop}\nFROM: ${ll}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDear ${tn},\n\nThis letter serves as formal notice that you are required to vacate the above-mentioned property by no later than ${vacate}.\n\nReason for notice: ${reason}\n\nYou are required to:\n\n1. Vacate and return vacant possession of the property by ${vacate}.\n2. Return all keys, access cards, and remotes on or before the vacate date.\n3. Make yourself available for a joint outgoing inspection, to be arranged in writing at least 3 business days in advance.\n4. Ensure all outstanding rental and utility accounts are settled in full prior to vacating.\n5. Leave the property in a clean condition, fair wear and tear excepted.\n\nShould you fail to vacate by the stated date, the Landlord reserves the right to approach the Rental Housing Tribunal of ${prov} or a court of competent jurisdiction for an eviction order in terms of the PIE Act 19 of 1998.${extra?'\n\nAdditional note:\n'+extra:''}\n\nYours sincerely,\n\n_______________________\n${ll} (Landlord)\nDate: _______________`;
+  } else if(n===2){
+    const ll=v('p-ll')||'[LANDLORD]',tn=v('p-tn')||'[TENANT]',prop=v('p-prop')||'[PROPERTY]',amt=r('p-amt'),months=v('p-months')||'[MONTH]',date=v('p-date')||today(),deadline=v('p-deadline')||'[DATE]',warn=v('p-warn');
+    title='Late Payment Warning Letter';
+    doc=`LATE PAYMENT WARNING — ${warn.toUpperCase()}\n\nDate: ${date}\n\nTO:   ${tn}\nRE:   ${prop}\nFROM: ${ll}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDear ${tn},\n\nThis letter constitutes a formal ${warn.toLowerCase()} regarding outstanding rental payments due in respect of the above-mentioned property.\n\nOUTSTANDING AMOUNT\n\nAmount overdue:  ${amt}\nPeriod(s):       ${months}\n\nYou are hereby required to make full payment of ${amt} by no later than ${deadline}.\n\nPayment must be made by EFT to the Landlord's nominated bank account. Proof of payment must be sent to the Landlord immediately upon payment.\n\n${warn==='Final warning'?'PLEASE NOTE: This is your final warning. Should payment not be received by the deadline above, the Landlord will have no option but to issue a formal Notice to Vacate and approach the Rental Housing Tribunal or a court of competent jurisdiction for relief.':'Should this matter not be resolved by the deadline above, the Landlord reserves the right to escalate this matter, including issuing a formal notice to vacate.'}\n\nYours sincerely,\n\n_______________________\n${ll} (Landlord)\nDate: _______________`;
+  } else if(n===3){
+    const ll=v('i-ll')||'[LANDLORD]',tn=v('i-tn')||'[TENANT]',prop=v('i-prop')||'[PROPERTY]',date=v('i-date')||today(),type=v('i-type'),living=v('i-living'),kitchen=v('i-kitchen'),bath=v('i-bath'),bed=v('i-bed'),ext=v('i-ext'),app=v('i-app'),defects=v('i-defects');
+    title='Property Inspection Report';
+    doc=`PROPERTY INSPECTION REPORT\nIn terms of the Rental Housing Act 50 of 1999\n\nInspection type: ${type}\nDate:            ${date}\nProperty:        ${prop}\nLandlord:        ${ll}\nTenant:          ${tn}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nCONDITION SUMMARY\n\n  Living areas:    ${living}\n  Kitchen:         ${kitchen}\n  Bathroom(s):     ${bath}\n  Bedroom(s):      ${bed}\n  Exterior/Garden: ${ext}\n  Appliances:      ${app}\n\nNOTED DEFECTS / DAMAGE\n\n${defects||'No defects noted at time of inspection.'}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBoth parties confirm the above reflects the condition of the property at the time of the ${type.toLowerCase()} inspection.\n\nLandlord: _______________________   Date: _______________\n${ll}\n\nTenant:   _______________________   Date: _______________\n${tn}`;
+  } else if(n===4){
+    const ll=v('t-ll')||'[LANDLORD]',tn=v('t-tn')||'[TENANT]',prop=v('t-prop')||'[PROPERTY]',prov=v('t-prov'),ref=v('t-ref')||'[REF]',complaint=v('t-complaint')||'[COMPLAINT]',response=v('t-response')||'[RESPONSE]';
+    title='Rental Housing Tribunal Response';
+    doc=`RESPONSE TO RENTAL HOUSING TRIBUNAL COMPLAINT\n\nDate: ${today()}\nComplaint reference: ${ref}\n\nTO:   The Rental Housing Tribunal of ${prov}\nFROM: ${ll} (Respondent/Landlord)\nRE:   ${prop}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nI, ${ll}, hereby submit the following formal response to the complaint lodged by ${tn}.\n\n1. NATURE OF COMPLAINT\n\n${complaint}\n\n2. LANDLORD'S RESPONSE\n\n${response}\n\n3. SUPPORTING DOCUMENTS\n\n  [ ] Signed lease agreement\n  [ ] Deposit receipt and interest-bearing account confirmation\n  [ ] Property inspection reports\n  [ ] Payment records / bank statements\n  [ ] Correspondence with tenant\n\n4. RELIEF SOUGHT\n\n4.1 Consider the facts and supporting documentation provided herein.\n4.2 Dismiss the complaint, alternatively make a fair and equitable determination.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nI confirm the information provided is true and correct to the best of my knowledge.\n\n_______________________\n${ll} (Landlord/Respondent)\nDate: _______________`;
+  }
+  document.getElementById('out-title').textContent=title;
+  document.getElementById('doc-content').textContent=doc;
+  const out=document.getElementById('output');
+  out.style.display='block';
+  out.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function copyDoc(){
+  navigator.clipboard.writeText(document.getElementById('doc-content').textContent).then(()=>{
+    const btn=document.querySelector('.copy-btn');
+    btn.textContent='Copied';
+    setTimeout(()=>btn.textContent='Copy document',2000);
+  });
+}
+</script>
+</body>
+</html>
